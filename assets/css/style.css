@@ -1,0 +1,76 @@
+html
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 248, 248);
+    /* color: white; */
+}
+
+h1{
+text-align: center;
+font-weight: bold;
+}
+#formulaire input{
+    width: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#formulaire form p {
+text-align: center;
+font-weight: bold;
+justify-content: center;
+margin-bottom: 10px;
+}
+.headright{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+.head h2{
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+}
+.headright p,.headright button{
+margin: 0 40px;
+font-size: 25px;
+font-weight: bold;
+}
+.todolist{
+    display: flex;
+    flex-direction: column;
+}
+table{
+    text-align: center;
+    /* justify-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+ tr,tr.alert {
+    border: 1px solid #000000;
+    /* background-color: aqua; */
+  }
+  /* tr.alert{
+background-color: rgba(215, 80, 80, 0.27);
+  } */
+  tr.alert:hover {background-color: rgba(255, 80, 199, 0.463);}
+th, td {
+    padding: 15px;
+  }
+  tr.alert button{
+    margin: 0 8px;
+  }
+  td{
+    border-right: 1px #000000;
+  }
+  .send{
+    /* justify-content: center; */
+    text-align: center;
+    margin-bottom: 10px;
+  }
