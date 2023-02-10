@@ -5,7 +5,7 @@ html
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(255, 248, 248);
+    background-color: rgb(255, 223, 223);
     /* color: white; */
 }
 
@@ -51,15 +51,16 @@ table{
     /* justify-content: center; */
     margin-left: auto;
     margin-right: auto;
+    font-weight: 800;
 }
  tr,tr.alert {
-    border: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     /* background-color: aqua; */
   }
   /* tr.alert{
 background-color: rgba(215, 80, 80, 0.27);
   } */
-  tr.alert:hover {background-color: rgba(255, 80, 199, 0.463);}
+  tr.alert:hover {background-color: rgba(166, 166, 166, 0.297);}
 th, td {
     padding: 15px;
   }
