@@ -24,10 +24,7 @@
             </div>
             <div class="headright">
                 <p>Tasks : <span> {{count}}</span></p>
-                <!-- <button>Tasks :{{count}}</button> -->
                 <p>Tasks Done : <span> {{counttotal}}</span></p>
-                <!-- <btn-delete @deleteAll="deleteAll"></btn-delete> -->
-                <!-- <button type="button" class="btn btn-primary btn1"> Delete tasks</button> -->
                 <button type="button" class="btn btn-outline-danger btn1" @click.prevent="clearAll"> Delete all <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: red;"></iconify-icon></button>
                 <button type="button" class="btn btn-outline-warning btn2" @click.prevent="delDone"> Delete Done <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: rgb(224, 105, 0);"></iconify-icon></button>
             </div>
@@ -35,6 +32,7 @@
         
                         <!-- CHAMP POUR ENSEIGNER SES NOUVELLES TACHE  -->
         <form action="" method="get" class="ajout">
+            <!-- dréation des champs de formulaires pour rneseigner les informations et autres et le v-model pour récuperer la valeur -->
             <div class="element">
                     <P> Add a new tasks</P>
                     <input class="form-control" v-model="newtasks" type="text" name="text" id="text" placeholder="New task" required><br>
@@ -45,7 +43,6 @@
                     <div class="send">
                         <button class="btn btn-outline-dark .text-light" type="submit" @click.prevent ="add()">Ajouter</button>
                     </div>
-                    <!-- <button @click.prevent="deleteAll"> test</button>  -->
             </div>
         </form>
         <!-- DIV POUR AFFICHER LES TACHES RENSEIGNE -->
@@ -62,13 +59,16 @@
 
                     <!-- 2-AFFICHAGE DANS UN TABLEAU -->
             <div>
+                <!-- tablequ pour afficher les données -->
             <table style="width:70%">
+                <!-- 1ere ligne pour l'entete des tableaux -->
                 <tr>
                     <th style="width:40%">TASK<iconify-icon inline icon="line-md:check-list-3-twotone" width="30"></iconify-icon></iconify-icon></th>
                     <th style="width:20%">DESCRIPTION<iconify-icon inline icon="line-md:text-box-to-text-box-multiple-transition" style="color: black;"  width="30"></iconify-icon> </th>
                     <th style="width:20%">Priority <iconify-icon inline icon="line-md:account-alert" style="color: black;" width="30"></iconify-icon></th>
                     <th style="width:20%">Action<iconify-icon inline icon="line-md:download-loop" style="color: black;"  width="30"></iconify-icon></th>
                   </tr>
+                  <!-- boucle sur la deuxième ligne du tableux pour afficher à chaque fois les données saisies la derniere lignes affichera à chaque fois le composant <btn-done></btn-done> -->
                   <tr v-for = "task in taskslist" class="alert">
                     <td>{{task.title}}</td>
                     <td>{{task.desc}}</td>
