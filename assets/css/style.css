@@ -5,7 +5,8 @@ html
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(255, 223, 223);
+    background-color: rgb(7, 7, 7);
+    color: white;
     /* color: white; */
 }
 
@@ -13,11 +14,40 @@ h1{
 text-align: center;
 font-weight: bold;
 }
-#formulaire input{
-    width: 70%;
+#formulaire input[type = text]{
+    width: 50%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.259) !important;
+    border-bottom: 2px solid rgb(255, 255, 255) !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    color: white;
+    font-weight: 600;
+}
+.urgence {
+  margin-right: 3vh;
+}
+.form-check-inline{
+  margin: 0 3vh;
+}
+form ::placeholder{
+  color: white !important;
+  font-weight: lighter;
+}
+/* input{
+  background-color: rgba(255, 255, 255, 0.423) !important;
+  border-radius: none;
+  border-bottom: 2px solid rgba(0, 0, 255, 0.467) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+} */
+form{
+  margin: 5vh 0;
 }
 #formulaire form p {
 text-align: center;
@@ -54,7 +84,7 @@ table{
     font-weight: 800;
 }
  tr,tr.alert {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #ffffff;
     /* background-color: aqua; */
   }
   /* tr.alert{
@@ -68,10 +98,19 @@ th, td {
     margin: 0 8px;
   }
   td{
-    border-right: 1px #000000;
+    border-right: 1px #ffffff;
   }
   .send{
     /* justify-content: center; */
     text-align: center;
-    margin-bottom: 10px;
+    margin: 5vh 0;
+  }
+  .High{
+    background-color: rgb(255, 132, 132);
+  }
+  .Low{
+    background-color: rgb(85, 85, 255);
+  }
+  .Middle{
+    background-color: rgb(89, 123, 81);
   }

@@ -18,32 +18,52 @@
     <section id="formulaire">
         <!-- DIV POUR LE HEADER DE LA TODOLIST -->
         <div class="head">
-            <div class="headleft"> 
-                <h2>MY TODOLIST<iconify-icon inline icon="material-symbols:list-alt-add-rounded" style="color: rgb(255, 103, 2);" width="40" flip="vertical"></iconify-icon></h2>
-                
-            </div>
-            <div class="headright">
-                <p>Tasks : <span> {{count}}</span></p>
-                <p>Tasks Done : <span> {{counttotal}}</span></p>
-                <button type="button" class="btn btn-outline-danger btn1" @click.prevent="clearAll"> Delete all <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: red;"></iconify-icon></button>
-                <button type="button" class="btn btn-outline-warning btn2" @click.prevent="delDone"> Delete Done <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: rgb(224, 105, 0);"></iconify-icon></button>
-            </div>
-        </div>
-        
+                <div class="headleft"> 
+                    <h2>MY TODOLIST<iconify-icon inline icon="material-symbols:list-alt-add-rounded" style="color: rgb(255, 255, 255);" width="40" flip="vertical"></iconify-icon></h2>
+                    
+                </div>
+                <div class="headright">
+                    <p>Tasks : <span> {{count}}</span></p>
+                    <p>Tasks Done : <span> {{counttotal}}</span></p>
+                    <button type="button" class="btn btn-outline-danger btn1" @click.prevent="clearAll"> Delete all <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: red;"></iconify-icon></button>
+                    <button type="button" class="btn btn-outline-warning btn2" @click.prevent="delDone"> Delete Done <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: rgb(224, 105, 0);"></iconify-icon></button>
+                </div>
+        </div>       
                         <!-- CHAMP POUR ENSEIGNER SES NOUVELLES TACHE  -->
-        <form action="" method="get" class="ajout">
-            <!-- dréation des champs de formulaires pour rneseigner les informations et autres et le v-model pour récuperer la valeur -->
-            <div class="element">
-                    <P> Add a new tasks</P>
-                    <input class="form-control" v-model="newtasks" type="text" name="text" id="text" placeholder="New task" required><br>
-                    <P> Add a description</P>
-                    <input class="form-control center" v-model="description" type="text" placeholder="Description (facultatif)" > <br> 
-                    <P> Add a priority</P>                   
-                <input class="form-control center" v-model="priority" type="text" placeholder="Priority (facultatif)" > <br> 
-                    <div class="send">
-                        <button class="btn btn-outline-dark .text-light" type="submit" @click.prevent ="add()">Ajouter</button>
+        <form action="" method="" class="ajout">
+                <!-- dréation des champs de formulaires pour rneseigner les informations et autres et le v-model pour récuperer la valeur -->
+                <div class="element">
+                    <div class="form-group">
+                        <!-- <label for="newtask">Add a new tasks</label> -->
+                        <input class="form-control" v-model="newtasks" type="text" name="text" id="text" placeholder="Add New task" required><br>
                     </div>
-            </div>
+                    <div class="form-group">
+                        <!-- <label for="desc">Add a description</label> -->
+                        <input class="form-control center" v-model="description" type="text" placeholder="Add Description (facultatif)" > <br> 
+                    </div>
+                    <div class="form-check-group text-center">
+                        <label for="urgence" class="urgence">Urgence de la tache (facultatif) </label>
+                        <div class=" form-check-inline">
+                            <input  v-model="priority2" type="radio" class="form-check-input" id="radio1" name="optradio" value="Low" >
+                            <label class="form-check-label" for="radio1">Low</label>
+                        </div>
+                        <div class=" form-check-inline">
+                            <input v-model="priority2" type="radio" class="form-check-input" id="radio2" name="optradio" value="Middle">
+                            <label class="form-check-label" for="radio2">Middle</label>
+                        </div>
+                        <div class=" form-check-inline">
+                            <input v-model="priority2" type="radio" class="form-check-input" id="radio2" name="optradio" value="High">
+                            <label class="form-check-label" for="radio2">High</label>
+                        </div>
+                        <div class="send">
+                            <button class="btn btn-outline-light" type="submit" @click.prevent ="add()">Ajouter</button>
+                        </div>
+                    </div>
+                    <!-- <input class="form-control center" v-model="priority" type="text" placeholder="Priority (facultatif)" > <br>  -->
+                        <!-- <P> Add a new tasks</P> -->
+                        <!-- <P> Add a description</P>
+                        <P> Add a priority</P>                    -->
+                </div>
         </form>
         <!-- DIV POUR AFFICHER LES TACHES RENSEIGNE -->
         <div class="todolist">
@@ -64,21 +84,26 @@
                 <!-- 1ere ligne pour l'entete des tableaux -->
                 <tr>
                     <th style="width:40%">TASK<iconify-icon inline icon="line-md:check-list-3-twotone" width="30"></iconify-icon></iconify-icon></th>
-                    <th style="width:20%">DESCRIPTION<iconify-icon inline icon="line-md:text-box-to-text-box-multiple-transition" style="color: black;"  width="30"></iconify-icon> </th>
-                    <th style="width:20%">Priority <iconify-icon inline icon="line-md:account-alert" style="color: black;" width="30"></iconify-icon></th>
-                    <th style="width:20%">Action<iconify-icon inline icon="line-md:download-loop" style="color: black;"  width="30"></iconify-icon></th>
-                  </tr>
+                    <th style="width:20%">DESCRIPTION<iconify-icon inline icon="line-md:text-box-to-text-box-multiple-transition" style="color: white;"  width="30"></iconify-icon> </th>
+                    <th style="width:20%">Priority <iconify-icon inline icon="line-md:account-alert" style="color: white;" width="30"></iconify-icon></th>
+                    <th style="width:20%">Action<iconify-icon inline icon="line-md:download-loop" style="color: white;"  width="30"></iconify-icon></th>
+                    <!-- <th style="width:20%">Action2<iconify-icon inline icon="line-md:download-loop" style="color: white;"  width="30"></iconify-icon></th> -->
+                </tr>
                   <!-- boucle sur la deuxième ligne du tableux pour afficher à chaque fois les données saisies la derniere lignes affichera à chaque fois le composant <btn-done></btn-done> -->
-                  <tr v-for = "task in taskslist" class="alert">
+                <tr v-for = "task in taskslist" class="alert">
                     <td>{{task.title}}</td>
                     <td>{{task.desc}}</td>
-                    <td>{{task.priorities}}</td>
+                    <!-- <td>{{task.priorities}}</td> -->
+                    <td :class="task.priorities2">{{task.priorities2}}</td>
+                    <!-- <td :class="'alert-' + task.priorities2">{{task.priorities2}}</td> -->
                     <td><btn-done @done ="done"></btn-done><btn-del @deleted ="deleted"></btn-del></td>
-                  </tr>
+                </tr>
             </table>
             </div>
         </div>
     </section>
-    
+    <!-- pour afficher des info dans la soucre on bind et on concatene avec les info de vue  -->
+    <!-- <img :src="'https://image.tmdb.org/t/p/w500' + lastmovie.poster_path" /> --> 
+    <!-- ou on peut utiliser cette 2e méthode avec les magic quotes (``) et le ${} pour signifier qu ec'est du js -->
 <!-- </div> -->
 </html>

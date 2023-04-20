@@ -6,18 +6,19 @@ var nw = new Vue({
         newtasks : "",
         description : "",
         priority : "",
+        priority2 : "",
         // declaration d'une liste vide
         taskslist : [],
-        // variable qui stockent les v-model dans en objet 
+        // variable qui stockent les v-model dans un objet 
         title : "",
         desc :"",
         priorities :"",
+        priorities2 : "",
         // autres variables
         completed : false,
         count : 0,
         counttotal : 0,
         isActive : true
-
     },
                 // ENSEMBLE DES METHODES
     methods : {
@@ -35,11 +36,12 @@ var nw = new Vue({
                     title : this.newtasks,
                     desc : this.description,
                     priorities : this.priority,
+                    priorities2 : this.priority2,
                 },
                 ...this.taskslist]
-                // affectation des valeurs de array a taskslist
+                // affectation des valeurs de array a taskslist pou pouvoir affivher les valeurs lors d ela bouclz
                 this.taskslist = array
-
+                
             }
             // if (this.priority === "urgent") {
             //     let test = document.querySelector('td')
@@ -49,14 +51,42 @@ var nw = new Vue({
             this.newtasks ="",
             this.description ="",
             this.priority = ""
+            //gérer les arrière plans en fonction des urgences des taches 
+            // let test = document.querySelector('.High')
+            // console.log(test);
+            // test.style.backgroundColor = "red"
         },
 
         // Fonction qui va changer la classe d'un élément si une tache est accomplie
         done : function(e){
-            this.completed = !this.completed
-            if (this.completed == true ) {
-                this.counttotal++
-            }
+            //METHODE POUR AFFICHE LE DECOMPTE DES TACHE FAITES 
+            //1 RE  MZTHODE QUI MARCHE APPROXIMATIVEMENT 
+            // this.completed = !this.completed
+            // if (this.completed == true ) {
+            //     this.counttotal++
+            // }
+            // else{
+            //     this.counttotal--
+
+            // }
+            //4E METHODE QUI ON ESPERE MARCHERA 
+
+            //2E   MZTHODE QUI MARCHE APPROXIMATIVEMENT 
+            // if (this.completed == true ) {
+            //     this.counttotal++
+            // }
+            //3E   MZTHODE QUI MARCHE APPROXIMATIVEMENT 
+            // if (!this.completed) {
+            //     this.completed = true;
+            //     this.counttotal++
+            //     // Ajoutez ici le code pour incrémenter l'élément
+            //   }
+            //   else if (this.completed) {
+            //     this.completed = false;
+            //     this.counttotal--
+            //     // Ajoutez ici le code pour incrémenter l'élément
+            //   }
+            //   this.completed = false
             // Déclaration d'une variable qui va stocker noutre balise <tr> :
             // le e fait reférence a l'événement  realisé; le target revoie le declencheur de l'évenement ou celui qui le subit
             // le .closest('tr') nous permet de definir l'élément parent du declencheur
@@ -64,6 +94,14 @@ var nw = new Vue({
             console.log(row);
             // à cette div <tr> on lui toggle la classe alert-success
             row.classList.toggle('alert-success')
+            //CONDITION POUR LE COMPTE DES TACHES FAITES 
+            //
+            //si la row ( <tr> contien ) la classe alert-success (qui signifie que la taches est acommplie) alors on f=incremeente le conttotal sinon on le décremente
+            if (row.classList.contains('alert-success')) {
+                this.counttotal++
+            } else {
+                this.counttotal-- 
+            }
 
         },
         // fonction pour supprimer une tache
@@ -72,6 +110,10 @@ var nw = new Vue({
             // La meme selection comme la variable row
             let del = e.target.closest('tr')
             // console.log(del)
+            // si le btn remove continet la classe alert-succes ce qui signifie que les taches sont accomplie alors lors de la suppression si la classe est presente on décrémente le counttotal
+            if (del.classList.contains('alert-success')) {
+                this.counttotal--
+            } 
             // une fois ciblé on le supprime à l'aide de la fonction .remove()
             del.remove()
         },
@@ -84,12 +126,20 @@ var nw = new Vue({
                         },
         // foction pour supprimer les taches accomplies
         delDone : function(){
-            isActive = false
-            list = document.querySelectorAll('.alert alert-success')
-            if (isActive===false) {
-                this.list=[]
+            //crration qui va stocker toutes  nos taches affectuées qui dont identifialbles par  la classe alert-success 
+            list = document.querySelectorAll('.alert-success')
+            //on boucle sur les éléménts du tableau et suppprie chaque element
+            for (var i = 0; i < list.length; i++) {
+                // if (i.classList.contains('alert-success')) {
+                // }
+                this.count--   
+                this.counttotal--
+                list[i].remove()
             }
+
+            console.log(list);
         }
+
     },
 })
                 // CREATION DES COMPOSANTS
@@ -128,3 +178,8 @@ Vue.component('btn-del',{
         }
         },
 })
+
+test = {'a': 1,
+'b':2,
+'c':3}
+console.log(test);
