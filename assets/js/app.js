@@ -43,7 +43,7 @@ var nw = new Vue({
                 ...this.taskslist]
                 // affectation des valeurs de array a taskslist pou pouvoir affivher les valeurs lors d ela bouclz
                 this.taskslist = array
-                
+                console.log(array);
             }
             // renitilisation des champs après un clic
             this.newtasks ="",
@@ -74,13 +74,18 @@ var nw = new Vue({
             this.count-=1
             // La meme selection comme la variable row
             let del = e.target.closest('tr')
-            // console.log(del)
+            let index = e.target.closest("tr").id;
+			console.log(index);
+			let newArray = this.taskslist;
+			newArray.splice(index, 1);
+			this.taskslist = newArray;
             // si le btn remove continet la classe alert-succes ce qui signifie que les taches sont accomplie alors lors de la suppression si la classe est presente on décrémente le counttotal
             if (del.classList.contains('alert-success')) {
                 this.counttotal--
             } 
             // une fois ciblé on le supprime à l'aide de la fonction .remove()
-            del.remove()
+            // del.remove();
+
         },
         // fonction qui va permettre de tout supprimer
         clearAll : function(){
@@ -93,14 +98,24 @@ var nw = new Vue({
         delDone : function(){
             //crration qui va stocker toutes  nos taches affectuées qui dont identifialbles par  la classe alert-success 
             list = document.querySelectorAll('.alert-success')
+            console.log(list);
             //on boucle sur les éléménts du tableau et suppprie chaque element
             for (var i = 0; i < list.length; i++) {
                 this.count--   
                 this.counttotal--
-                list[i].remove()
+                let doneTarget = list[i].id;
+                console.log(doneTarget);
+                // if (doneTarget == 0) {
+                    
+                // } else {
+                    
+                // }
+                let doneArray = this.taskslist;
+                doneArray.splice(doneTarget, 1);
+                this.taskslist = doneArray;
+                // list[i].remove()
             }
-
-            console.log(list);
+            // console.log(list);
         }
 
     },

@@ -73,7 +73,7 @@
                     <th style="width:20%">Action<iconify-icon inline icon="line-md:download-loop" style="color: white;"  width="30"></iconify-icon></th>
                 </tr>
                   <!-- boucle sur la deuxième ligne du tableux pour afficher à chaque fois les données saisies la derniere lignes affichera à chaque fois le composant <btn-done></btn-done> -->
-                <tr v-for = "task in taskslist" class="alert">
+                <tr v-for = "(task, index) in taskslist" class="alert" :id="index">
                     <td>{{task.title}}</td>
                     <td>{{task.desc}}</td>
                     <!-- <td>{{task.priorities}}</td> -->
