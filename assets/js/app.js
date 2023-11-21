@@ -1,3 +1,5 @@
+
+
 // initialisation de l'instance de vue
 var nw = new Vue({
     el : '#formulaire',
@@ -43,51 +45,15 @@ var nw = new Vue({
                 this.taskslist = array
                 
             }
-            // if (this.priority === "urgent") {
-            //     let test = document.querySelector('td')
-            //     test.classList.add('alert-danger')
-            // }
             // renitilisation des champs après un clic
             this.newtasks ="",
             this.description ="",
             this.priority = ""
-            //gérer les arrière plans en fonction des urgences des taches 
-            // let test = document.querySelector('.High')
-            // console.log(test);
-            // test.style.backgroundColor = "red"
         },
 
-        // Fonction qui va changer la classe d'un élément si une tache est accomplie
+        // Fonction qui va changer la classe d'un élément si une tache est accomplie : 
         done : function(e){
-            //METHODE POUR AFFICHE LE DECOMPTE DES TACHE FAITES 
-            //1 RE  MZTHODE QUI MARCHE APPROXIMATIVEMENT 
-            // this.completed = !this.completed
-            // if (this.completed == true ) {
-            //     this.counttotal++
-            // }
-            // else{
-            //     this.counttotal--
-
-            // }
-            //4E METHODE QUI ON ESPERE MARCHERA 
-
-            //2E   MZTHODE QUI MARCHE APPROXIMATIVEMENT 
-            // if (this.completed == true ) {
-            //     this.counttotal++
-            // }
-            //3E   MZTHODE QUI MARCHE APPROXIMATIVEMENT 
-            // if (!this.completed) {
-            //     this.completed = true;
-            //     this.counttotal++
-            //     // Ajoutez ici le code pour incrémenter l'élément
-            //   }
-            //   else if (this.completed) {
-            //     this.completed = false;
-            //     this.counttotal--
-            //     // Ajoutez ici le code pour incrémenter l'élément
-            //   }
-            //   this.completed = false
-            // Déclaration d'une variable qui va stocker noutre balise <tr> :
+            // Déclaration d'une variable qui va stocker notre balise <tr> :
             // le e fait reférence a l'événement  realisé; le target revoie le declencheur de l'évenement ou celui qui le subit
             // le .closest('tr') nous permet de definir l'élément parent du declencheur
             let row = e.target.closest('tr')
@@ -95,7 +61,6 @@ var nw = new Vue({
             // à cette div <tr> on lui toggle la classe alert-success
             row.classList.toggle('alert-success')
             //CONDITION POUR LE COMPTE DES TACHES FAITES 
-            //
             //si la row ( <tr> contien ) la classe alert-success (qui signifie que la taches est acommplie) alors on f=incremeente le conttotal sinon on le décremente
             if (row.classList.contains('alert-success')) {
                 this.counttotal++
@@ -130,8 +95,6 @@ var nw = new Vue({
             list = document.querySelectorAll('.alert-success')
             //on boucle sur les éléménts du tableau et suppprie chaque element
             for (var i = 0; i < list.length; i++) {
-                // if (i.classList.contains('alert-success')) {
-                // }
                 this.count--   
                 this.counttotal--
                 list[i].remove()
@@ -142,23 +105,11 @@ var nw = new Vue({
 
     },
 })
-                // CREATION DES COMPOSANTS
 
-// Vue.component('btn-delete',{
-    // template : `<button class="btn btn-outline-danger" @click="clear"> delete All <iconify-icon inline icon="material-symbols:delete-outline-rounded" style="color: red;"></iconify-icon></button>`,
-    // methods: {
-    //     clear(e) {
-    //         // console.log(e,'methode');
-    //     this.$emit('deleteAll',e)
-    //     }
-    //     },
-// })
 
+// CREATION DES COMPOSANTS
 
 // CREATION D'un composant pour les ACTIONS
-// on ajoute à nos composants une méthode qui va prendre en paramètre l'event et qui va emettre ($emit) la fonction done
-// au click du bouton template on lui affececte la methode créee
-// dans le html on fait @done ="done" en gros l'venement globla déclenche la fonction done
 Vue.component('btn-done',{
     template : `<button class="btn btn-outline-success" @click="maMethode"> <iconify-icon inline icon="ic:baseline-done-outline" style="color: green;"></iconify-icon> </button>`,
     methods: {
@@ -178,8 +129,3 @@ Vue.component('btn-del',{
         }
         },
 })
-
-test = {'a': 1,
-'b':2,
-'c':3}
-console.log(test);

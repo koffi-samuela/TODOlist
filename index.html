@@ -12,13 +12,11 @@
     <script defer src="./assets/js/app.js" ></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
 </head>
-<body>
-    <!-- <div id="app">   -->
-    <!-- <h1> TD TODOLIST</h1> -->
+<body>  
     <section id="formulaire">
         <!-- DIV POUR LE HEADER DE LA TODOLIST -->
         <div class="head">
-                <div class="headleft"> 
+            <div class="headleft"> 
                     <h2>MY TODOLIST<iconify-icon inline icon="material-symbols:list-alt-add-rounded" style="color: rgb(255, 255, 255);" width="40" flip="vertical"></iconify-icon></h2>
                     
                 </div>
@@ -31,7 +29,7 @@
         </div>       
                         <!-- CHAMP POUR ENSEIGNER SES NOUVELLES TACHE  -->
         <form action="" method="" class="ajout">
-                <!-- dréation des champs de formulaires pour rneseigner les informations et autres et le v-model pour récuperer la valeur -->
+                <!-- création des champs de formulaires pour rneseigner les informations et autres et le v-model pour récuperer la valeur -->
                 <div class="element">
                     <div class="form-group">
                         <!-- <label for="newtask">Add a new tasks</label> -->
@@ -59,23 +57,10 @@
                             <button class="btn btn-outline-light" type="submit" @click.prevent ="add()">Ajouter</button>
                         </div>
                     </div>
-                    <!-- <input class="form-control center" v-model="priority" type="text" placeholder="Priority (facultatif)" > <br>  -->
-                        <!-- <P> Add a new tasks</P> -->
-                        <!-- <P> Add a description</P>
-                        <P> Add a priority</P>                    -->
                 </div>
         </form>
         <!-- DIV POUR AFFICHER LES TACHES RENSEIGNE -->
         <div class="todolist">
-            <!-- 1-AFFICHAGE DANS UNE LISTE -->
-            <!-- <ul v-for = "task in taskslist"> -->
-         <!-- <ul>
-                <li v-for = "task in taskslist" :class = "{completed : task.completed}">    
-                        tasks : {{task.title}} - Description : {{task.desc}}<iconify-icon inline icon="material-symbols:playlist-add-check-circle" style="color: blue;" width="20"></iconify-icon> <input type="checkbox"></td>               
-                     </li>  
- 
-                    <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">   
-            </ul> -->
 
                     <!-- 2-AFFICHAGE DANS UN TABLEAU -->
             <div>
@@ -87,7 +72,6 @@
                     <th style="width:20%">DESCRIPTION<iconify-icon inline icon="line-md:text-box-to-text-box-multiple-transition" style="color: white;"  width="30"></iconify-icon> </th>
                     <th style="width:20%">Priority <iconify-icon inline icon="line-md:account-alert" style="color: white;" width="30"></iconify-icon></th>
                     <th style="width:20%">Action<iconify-icon inline icon="line-md:download-loop" style="color: white;"  width="30"></iconify-icon></th>
-                    <!-- <th style="width:20%">Action2<iconify-icon inline icon="line-md:download-loop" style="color: white;"  width="30"></iconify-icon></th> -->
                 </tr>
                   <!-- boucle sur la deuxième ligne du tableux pour afficher à chaque fois les données saisies la derniere lignes affichera à chaque fois le composant <btn-done></btn-done> -->
                 <tr v-for = "task in taskslist" class="alert">
@@ -102,8 +86,4 @@
             </div>
         </div>
     </section>
-    <!-- pour afficher des info dans la soucre on bind et on concatene avec les info de vue  -->
-    <!-- <img :src="'https://image.tmdb.org/t/p/w500' + lastmovie.poster_path" /> --> 
-    <!-- ou on peut utiliser cette 2e méthode avec les magic quotes (``) et le ${} pour signifier qu ec'est du js -->
-<!-- </div> -->
 </html>
